@@ -103,8 +103,8 @@ template<typename T>
 void minHeap<T>::siftDown(int pos){
 	T temp=heapArray[pos];
 	int j=2*pos+1;
-	while((j+1)<currentSize){
-		if(heapArray[j]>heapArray[j+1]){
+	while(j<currentSize){//考虑右子树不存在的情况
+		if((j+1<currentSize)&&heapArray[j]>heapArray[j+1]){
 			j++;
 		}
 		if(temp<heapArray[j]){
